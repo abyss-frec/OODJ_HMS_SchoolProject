@@ -2,8 +2,7 @@ package hms.model;
 
 /**
  * A bill generated for a completed appointment. Combines the medical
- * grading system (surcharge applied when the visit's grade is WARNING or
- * CRITICAL) with the patient's insurance coverage to compute a final amount.
+ * grading system with the patient's insurance coverage to compute a final amount.
  */
 public class Billing {
 
@@ -16,7 +15,7 @@ public class Billing {
     private double gradeSurcharge;
     private double insuranceDeduction;
     private double finalAmount;
-    private String grade;       // overall grade used for this bill (NORMAL/WARNING/CRITICAL/N-A)
+    private String grade;       // (NORMAL/WARNING/CRITICAL/N-A) from AssessmentType.grade
     private Status status;
     private String dateIssued;
 
