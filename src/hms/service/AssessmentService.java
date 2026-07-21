@@ -10,9 +10,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
- * Handles both the design of assessment/check-up TYPES (by Doctors) and the
- * keying-in of actual assessment RESULTS, applying the medical grading
- * system (NORMAL / WARNING / CRITICAL) via AssessmentType.grade().
+ * Handles both the design of assessment/check-up TYPES and the
+ * keying-in of actual assessment RESULTS
+ * applying the medical grading system (NORMAL / WARNING / CRITICAL) 
  */
 public class AssessmentService {
 
@@ -20,7 +20,7 @@ public class AssessmentService {
     private final AssessmentRepository assessmentRepo = new AssessmentRepository();
     private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-    // ---- Assessment Types ----
+    // Assessment Types 
     public List<AssessmentType> getAllTypes() { return typeRepo.loadAll(); }
 
     public AssessmentType createType(String name, String unit, double normalMin, double normalMax,
@@ -35,7 +35,7 @@ public class AssessmentService {
     public void deleteType(String id) { typeRepo.delete(id); }
     public AssessmentType findType(String id) { return typeRepo.findById(id); }
 
-    // ---- Assessment Results ----
+    // Assessment Results 
     public List<Assessment> getResultsForPatient(String patientId) { return assessmentRepo.findByPatient(patientId); }
 
     public Assessment recordResult(String patientId, String doctorId, String typeId, double value, String notes) {
