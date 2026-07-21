@@ -9,7 +9,7 @@ public class Assessment {
     private String typeId;
     private String dateTime;
     private double resultValue;
-    private String grade;   // NORMAL / WARNING / CRITICAL - computed via AssessmentType.grade()
+    private String grade;   // NORMAL / WARNING / CRITICAL
     private String notes;
 
     public Assessment(String assessmentId, String patientId, String doctorId, String typeId,
