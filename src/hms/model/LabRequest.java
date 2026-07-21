@@ -12,7 +12,7 @@ public class LabRequest {
     private Type type;
     private Status status;
     private String dateRequested;
-    private String wardId;      // lab/imaging room assigned by admin, may be ""
+    private String wardId;      // lab or imaging room assigned by admin, may be ""
     private String resultNotes;
 
     public LabRequest(String requestId, String patientId, String doctorId, Type type, Status status,
