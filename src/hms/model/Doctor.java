@@ -10,10 +10,10 @@ package hms.model;
  */
 public class Doctor extends User {
 
-    private String departmentId;   // specialty / department
+    private String departmentId;   // specialty or department
     private String managerId;      // assigned Medical Manager
     private double consultationFee;
-    private String shiftSchedule;  // e.g. "Mon-Fri 09:00-17:00"
+    private String shiftSchedule;
 
     public Doctor(String userId, String username, String password, String fullName,
                   String email, String phone, String dateRegistered, boolean active,

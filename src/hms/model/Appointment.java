@@ -9,7 +9,7 @@ public class Appointment {
     private String patientId;
     private String doctorId;
     private String wardId;      // consultation room
-    private String dateTime;    // e.g. "2026-08-05 10:30"
+    private String dateTime;
     private Status status;
     private String vitals;            // logged by doctor
     private String consultationNotes; // logged by doctor

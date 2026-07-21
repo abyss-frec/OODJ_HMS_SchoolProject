@@ -1,6 +1,6 @@
 package hms.model;
 
-/** A clinical department / medical specialty, e.g. Cardiology. */
+/** A clinical department / medical specialty */
 public class Department {
 
     private String deptId;
