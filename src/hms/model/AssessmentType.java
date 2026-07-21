@@ -1,15 +1,14 @@
 package hms.model;
 
 /**
- * A medical assessment / check-up type designed by a Doctor (e.g. "Blood
- * Pressure", "Blood Sugar"). Stores the normal range used by the medical
- * grading system to classify a result as NORMAL, WARNING or CRITICAL.
+ * A medical assessment / check-up type designed by a Doctor 
+ * classifies a result as NORMAL, WARNING or CRITICAL.
  */
 public class AssessmentType {
 
     private String typeId;
     private String name;
-    private String unit;       // e.g. "mmHg", "mg/dL"
+    private String unit;      
     private double normalMin;
     private double normalMax;
     private double criticalMin; // below this => CRITICAL
