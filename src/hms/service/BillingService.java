@@ -27,7 +27,7 @@ public class BillingService {
     public List<Billing> getForPatient(String patientId) { return billRepo.findByPatient(patientId); }
     public List<Billing> getAll() { return billRepo.loadAll(); }
 
-    /** Determines the worst grade among a patient's recorded assessments (or "N-A" if none). */
+    /** Determines the worst grade among a patient's recorded assessments */
     private String worstGrade(String patientId) {
         String worst = "N-A";
         for (Assessment a : assessmentRepo.findByPatient(patientId)) {
