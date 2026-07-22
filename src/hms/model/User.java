@@ -1,7 +1,8 @@
 package hms.model;
 
 /**
- * Base class representing any person who can log into the HMS,
+ * Base class representing any person 
+ * who can log into the HMS,
  * regardless of what role they are.
  */
 public abstract class User {

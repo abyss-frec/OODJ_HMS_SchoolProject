@@ -5,9 +5,7 @@ import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Helper for reading/writing plain text files used as the HMS
- */
+/** Helper for reading/writing plain text files used by the HMS */
 public class FileManager {
 
     public static final String DATA_DIR = "data";

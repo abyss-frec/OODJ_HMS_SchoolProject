@@ -2,7 +2,7 @@ package hms.util;
 
 import java.util.regex.Pattern;
 
-/** Centralized user-input validation to satisfy the "avoid logical error" requirement. */
+/** Centralized user-input validation. */
 public class Validator {
 
     private static final Pattern EMAIL_PATTERN =
@@ -48,7 +48,7 @@ public class Validator {
         return isDouble(s) && Double.parseDouble(s.trim()) >= 0;
     }
 
-    /** Very simple date-time pattern check: yyyy-MM-dd HH:mm */
+    /** Date-time pattern check: yyyy-MM-dd HH:mm */
     public static boolean isValidDateTime(String s) {
         if (!isNotEmpty(s)) return false;
         return Pattern.matches("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}$", s.trim());

@@ -2,9 +2,9 @@ package hms.util;
 
 import java.util.List;
 
-/**
- * Generates the next ID for a given prefix based on the highest
- */
+/** Generates the next ID for a given prefix 
+* based on the highest ID in the file 
+*/
 public class IdGenerator {
 
     private IdGenerator() { }

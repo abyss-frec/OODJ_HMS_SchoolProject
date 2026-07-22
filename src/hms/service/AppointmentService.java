@@ -14,7 +14,7 @@ public class AppointmentService {
     public List<Appointment> getForDoctor(String doctorId) { return repo.findByDoctor(doctorId); }
     public Appointment findById(String id) { return repo.findById(id); }
 
-    /** Checks whether a doctor already has a BOOKED/RESCHEDULED appointment at the exact same time. */
+    /** Checks whether a doctor already has an appointment at the exact same time. */
     public boolean isSlotTaken(String doctorId, String dateTime) {
         for (Appointment a : repo.findByDoctor(doctorId)) {
             if (a.getDateTime().equals(dateTime)

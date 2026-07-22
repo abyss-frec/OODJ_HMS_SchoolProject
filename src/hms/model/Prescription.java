@@ -7,7 +7,7 @@ public class Prescription {
     private String appointmentId;
     private String patientId;
     private String doctorId;
-    private String medications; // free text, semicolon separated
+    private String medications; // free text, semicolon separated, can be multiple
     private String instructions;
     private String dateIssued;
 
