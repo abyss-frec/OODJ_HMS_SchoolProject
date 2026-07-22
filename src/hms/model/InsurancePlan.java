@@ -1,6 +1,6 @@
 package hms.model;
 
-/** An accepted insurance network / plan, configured by Admin Staff. */
+/** An accepted insurance network / plan, configured by Admins. */
 public class InsurancePlan {
 
     private String planId;
