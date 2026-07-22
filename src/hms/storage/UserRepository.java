@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Repository (DAO) for all User subtypes. Each role is stored in its own
+ * Repository for all User subtypes. Each role is stored in its own
  * text file, but this class exposes a unified API so callers (services/GUI)
  * do not need to know about individual files.
  */
@@ -19,7 +19,7 @@ public class UserRepository {
     private static final String DOCTOR_FILE = "doctors.txt";
     private static final String PATIENT_FILE = "patients.txt";
 
-    // ---------- Load ----------
+    // Load Unique text files for each role
     public List<AdminStaff> loadAdmins() {
         List<AdminStaff> list = new ArrayList<>();
         for (String line : FileManager.readLines(ADMIN_FILE)) {
@@ -52,7 +52,7 @@ public class UserRepository {
         return list;
     }
 
-    /** Loads every user across all four roles (used for login & admin user-management). */
+    /** Loads every user across all four roles */
     public List<User> loadAllUsers() {
         List<User> all = new ArrayList<>();
         all.addAll(loadAdmins());
@@ -62,7 +62,7 @@ public class UserRepository {
         return all;
     }
 
-    // ---------- Find ----------
+    // Find the specific user
     public User findByUsername(String username) {
         for (User u : loadAllUsers()) {
             if (u.getUsername().equalsIgnoreCase(username)) return u;
@@ -81,19 +81,19 @@ public class UserRepository {
         return findByUsername(username) != null;
     }
 
-    // ---------- ID generation ----------
+    // ID generation
     public String nextAdminId() { return IdGenerator.nextId(FileManager.readLines(ADMIN_FILE), "ADM", 4); }
     public String nextManagerId() { return IdGenerator.nextId(FileManager.readLines(MANAGER_FILE), "MGR", 4); }
     public String nextDoctorId() { return IdGenerator.nextId(FileManager.readLines(DOCTOR_FILE), "DOC", 4); }
     public String nextPatientId() { return IdGenerator.nextId(FileManager.readLines(PATIENT_FILE), "PAT", 4); }
 
-    // ---------- Save (insert) ----------
+    // Save (SQL insert)
     public void save(AdminStaff a) { FileManager.appendLine(ADMIN_FILE, a.toFileLine()); }
     public void save(MedicalManager m) { FileManager.appendLine(MANAGER_FILE, m.toFileLine()); }
     public void save(Doctor d) { FileManager.appendLine(DOCTOR_FILE, d.toFileLine()); }
     public void save(Patient p) { FileManager.appendLine(PATIENT_FILE, p.toFileLine()); }
 
-    // ---------- Update ----------
+    // Update user role information
     public void update(AdminStaff a) { replace(ADMIN_FILE, loadAdmins(), a); }
     public void update(MedicalManager m) { replaceManager(m); }
     public void update(Doctor d) { replaceDoctor(d); }
@@ -131,7 +131,7 @@ public class UserRepository {
         FileManager.writeLines(PATIENT_FILE, lines);
     }
 
-    // ---------- Delete ----------
+    // Delete
     public void deleteAdmin(String userId) {
         List<String> lines = new ArrayList<>();
         for (AdminStaff a : loadAdmins()) if (!a.getUserId().equals(userId)) lines.add(a.toFileLine());
@@ -156,7 +156,7 @@ public class UserRepository {
         FileManager.writeLines(PATIENT_FILE, lines);
     }
 
-    /** Deletes a user of any role by ID (used by generic admin "delete user" action). */
+    /** Deletes a user of any role by ID (used by admin only). */
     public void deleteAny(String userId) {
         User u = findById(userId);
         if (u == null) return;
