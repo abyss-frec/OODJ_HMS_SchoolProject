@@ -59,7 +59,7 @@ public class AdminDashboard extends JFrame {
         return bar;
     }
 
-    // ================= USERS TAB =================
+    // USERS TAB
     private JPanel buildUsersTab() {
         JPanel panel = new JPanel(new BorderLayout(6, 6));
         JTabbedPane roleTabs = new JTabbedPane();
